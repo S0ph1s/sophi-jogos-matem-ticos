@@ -1,26 +1,92 @@
-<!DOCTYPE html> 
-<html lang="pt-BR"> 
-<head> 
-<meta charset="UTF-8"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<title>Jogo de Matemática</title> 
-<link rel="stylesheet" href="style.css"> 
-</head> 
-<body> 
-<div class="container"> 
-<h1>Jogo de Matemática</h1> 
-<p>Escolha o modo do jogo:</p> 
-<button onclick="iniciarJogo('basico')">Modo Básico</button> 
-<button onclick="iniciarJogo('desafio')">Modo Desafio</button> 
-<div id="area-jogo" style="display: none;"> 
-<p id="pergunta"></p> 
-<input type="number" id="resposta" placeholder="Digite sua resposta"> 
-<button onclick="verificarResposta()">Responder</button> 
-<p id="resultado"></p> 
-<button onclick="novaPergunta()">Nova Pergunta</button>
-<p>Pontuação: <span id="pontuacao">@</span></p> 
-</div> 
-</div> 
-<script src="js/game.js"></script> 
-</body> 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Matemática</title>
+    <!-- Fonte bonita do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"><!-- ajuste o caminho se necessário -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #f8ffae 0%, #c875d3 100%);
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        #area-jogo {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            max-width: 350px;
+            margin: 60px auto;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        #pergunta {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: #2d3a4b;
+        }
+
+        input[type="number"], input[type="text"] {
+            font-size: 1.2rem;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 12px;
+            width: 80px;
+            text-align: center;
+        }
+
+        button {
+            background: #c643c6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 24px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 8px 0;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #2d3a4b;
+        }
+
+        #resultado {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            min-height: 24px;
+        }
+
+        #pontuacao {
+            font-weight: bold;
+            color: #bb43c6;
+            font-size: 1.3rem;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogo de Matemática</h1>
+        <p>Escolha o modo do jogo:</p>
+        <button onclick="iniciarJogo('basico')">Modo Básico</button>
+        <button onclick="iniciarJogo('desafio')">Modo Desafio</button>
+        <div id="area-jogo" style="display: none;">
+            <p id="pergunta"></p>
+            <input type="number" id="resposta" placeholder="Digite sua resposta" aria-label="Resposta">
+            <button onclick="verificarResposta()">Responder</button>
+            <button onclick="reiniciarJogo()">Reiniciar</button>
+            <p id="resultado"></p>
+            <p>Pontuação: <span id="pontuacao">0</span></p>
+        </div>
+    </div>
+    <script src="js/game.js"></script>
+</body>
 </html>

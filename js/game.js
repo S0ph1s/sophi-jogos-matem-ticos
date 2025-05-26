@@ -6,6 +6,8 @@ let modoAtual = 'basico';
 // Função que inicia o jogo com o modo escolhido
 function iniciarJogo(modo) {
     modoAtual = modo;
+    pontuacao = 0;
+    document.getElementById("pontuacao").innerText = pontuacao;
     document.getElementById("area-jogo").style.display = "block";
     novaPergunta();
 }
@@ -19,6 +21,7 @@ function novaPergunta() {
     document.getElementById("pergunta").innerText = perguntaTexto;
     document.getElementById("resposta").value = "";
     document.getElementById("resultado").innerText = "";
+    document.getElementById("resposta").focus();
 }
 
 // Gera números aleatórios, maiores no modo desafio
@@ -51,13 +54,24 @@ function calcularResposta(n1, n2, op) {
 // Verifica se a resposta do usuário está correta
 function verificarResposta() {
     const respostaUsuario = parseInt(document.getElementById("resposta").value);
+    if (isNaN(respostaUsuario)) {
+        document.getElementById("resultado").innerText = "Digite um número válido!";
+        return;
+    }
     if (respostaUsuario === respostaCorreta) {
-        document.getElementById("resultado").innerText = "Resposta Correta!";
+        document.getElementById("resultado").innerText = "✅ Resposta Correta!";
         pontuacao += 10;
     } else {
-        document.getElementById("resultado").innerText = `Errado! A resposta era ${respostaCorreta}`;
-        pontuacao -= 5;
+        document.getElementById("resultado").innerText = `❌ Errado! A resposta era ${respostaCorreta}`;
+        pontuacao = Math.max(0, pontuacao - 5);
     }
     document.getElementById("pontuacao").innerText = pontuacao;
+    setTimeout(novaPergunta, 1200);
 }
 
+// Reinicia o jogo
+function reiniciarJogo() {
+    pontuacao = 0;
+    document.getElementById("pontuacao").innerText = pontuacao;
+    novaPergunta();
+}

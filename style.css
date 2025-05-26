@@ -1,28 +1,99 @@
 body { 
-    font-family: Arial, sans-serif; 
+    font-family: 'Poppins', Arial, sans-serif; 
     text-align: center; 
-    background-color:rgb(250, 171, 214); 
+    background: linear-gradient(135deg, #ffb6d5 0%, #ff6fcb 100%);
     margin: 0; 
     padding: 0; 
-    } 
-    .container { 
-    max-width: 500px; 
-    margin: 50px auto; 
-    background: rgb(243, 135, 194); 
-    padding: 20px; 
-    border-radius: 10px; 
-    box-shadow: 0 0 10px rgba(235, 121, 191, 0.507); 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+} 
+
+.container { 
+    max-width: 400px; 
+    background: #ffe0f0; 
+    padding: 32px 24px; 
+    border-radius: 18px; 
+    box-shadow: 0 4px 24px rgba(255, 105, 180, 0.18); 
+}
+
+h1 {
+    color: #e75480;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+p {
+    color: #b8326a;
+    font-size: 1.1rem;
+}
+
+button { 
+    margin: 10px 5px; 
+    padding: 10px 24px; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    background: linear-gradient(90deg, #e75480 0%, #ff6fcb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(255, 105, 180, 0.10);
+    transition: background 0.2s, transform 0.2s;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 600;
+}
+button:hover {
+    background: linear-gradient(90deg, #ff6fcb 0%, #e75480 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+input[type="number"] { 
+    padding: 10px; 
+    font-size: 1.1rem; 
+    margin-top: 10px; 
+    width: 70%; 
+    border: 1px solid #e75480;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 12px;
+    background: #fff;
+    color: #e75480;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+#area-jogo {
+    margin-top: 24px;
+}
+
+#pergunta {
+    font-size: 1.5rem;
+    color: #e75480;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+#resultado {
+    font-size: 1.1rem;
+    margin-top: 12px;
+    min-height: 24px;
+    color: #ff6fcb;
+}
+
+#pontuacao {
+    font-weight: bold;
+    color: #e75480;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 16px 4px;
+        max-width: 98vw;
     }
-    button { 
-        margin: 10px 5px; 
-        padding: 10px 20px; 
-        font-size: 16px; 
-        cursor: pointer; 
-        } 
-        input { 
-        padding: 10px; 
-        font-size: 16px; 
-        margin-top: 10px; 
-        width: 80%; 
-        }
-        
+    input[type="number"] {
+        width: 95%;
+    }
+}
